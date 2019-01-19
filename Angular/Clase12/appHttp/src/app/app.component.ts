@@ -50,4 +50,23 @@ export class AppComponent {
         error => console.log(error)
       )
   }
+
+  eliminar(idCurso:Number){
+    console.log(idCurso)
+    const curso: ICurso = this.grupo.getRawValue()
+    this.cursosService.eliminar(idCurso)
+    .subscribe(
+      data => {
+        console.log("registro eliminado")
+        this.observador.next(data)
+        //this.grupo.reset()
+      },
+      error => console.log(error)
+    )
+  }
+
+  refrescar(){
+    this.observador.next()
+  }
+
 }

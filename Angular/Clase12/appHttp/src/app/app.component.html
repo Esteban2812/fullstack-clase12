@@ -7,7 +7,11 @@
           <div class="form-group">
             <button class="btn btn-primary" [disabled]="grupo.invalid">Insertar</button>
           </div>
+
         </form>
+  </div>
+  <div >
+    <button type="button" class="btn btn-primary" (click)="refrescar()">refrescar</button>
   </div>
   <div class="row justify-content-center">
     <table class="col-8 table table-bordered">
@@ -15,11 +19,15 @@
         <tr>
           <td>ID</td>
           <td>Título</td>
+          <td>Accion</td>
         </tr>
       </thead>
       <tr *ngFor="let curso of cursos">
         <td>{{curso.idCurso}}</td>
         <td>{{curso.titulo}}</td>
+        <td>
+          <button type="button" class="btn btn-succeed" (click)="eliminar(curso.idCurso)">Eliminar</button>
+        </td>
       </tr>
     </table>
   </div>
